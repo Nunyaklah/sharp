@@ -12,7 +12,10 @@ dependencies:
     sdk: flutter
 
 
+
+
   cupertino_icons: ^0.1.2
+  flutter_barcode_scanner: ^0.0.9
 
 dev_dependencies:
   flutter_test:
@@ -28,6 +31,8 @@ flutter:
 
   assets:
     - images/qr-code.png
+    - scan.png
+    - man.png
 
   fonts:
     - family: Montserrat

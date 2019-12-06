@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sharp/receive.dart';
 import 'package:sharp/scan.dart';
+import 'package:sharp/scan_code.dart';
+import 'package:sharp/shop.dart';
 
 void main() => runApp(Sharp());
 
@@ -19,7 +22,7 @@ class _SharpState extends State<Sharp> {
         scaffoldBackgroundColor: Color(0xFFFFFFFF),
         accentColor: Color(0xFFFFBD00),
       ),
-      home: Scan(),
+      home: Receive(),
     );
   }
 }

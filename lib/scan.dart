@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class Scan extends StatefulWidget {
   @override
@@ -6,6 +7,17 @@ class Scan extends StatefulWidget {
 }
 
 class _ScanState extends State<Scan> {
+  String _counter, _value = "";
+
+  Future __incrementCounter() async {
+    _counter =
+        await FlutterBarcodeScanner.scanBarcode("#004297", "Cancel", true);
+
+    setState(() {
+      _value = _counter;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,9 +26,10 @@ class _ScanState extends State<Scan> {
           child: Text(
             'Scan QR code',
             style: TextStyle(
-                fontSize: 24,
-                fontFamily: 'Montserrat',
-                color: Color(0xFF1B2325)),
+              fontSize: 24,
+              fontFamily: 'Montserrat',
+              color: Color(0xFF1B2325),
+            ),
           ),
         ),
       ),
@@ -45,10 +58,15 @@ class _ScanState extends State<Scan> {
                         color: Color(0xFF1B2325),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      __incrementCounter();
+                    },
                     color: Color(0xFFFFBD00),
                   ),
                 ),
+              ),
+              Column(
+                children: <Widget>[Text('Value of Scan'), Text(_value)],
               )
             ],
           ),
